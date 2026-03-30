@@ -644,17 +644,19 @@ a { color: inherit; text-decoration: none; }
 
   /* Mobile/tablet: avoid cropping on the first hero photo */
   .hero-main-photo {
-    height: 420px;
-    object-fit: contain;
+    height: auto;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
     object-position: top center;
   }
 
   /* Tablet/mobile: avoid cropping on the biography photo */
   .bio-main {
     height: auto;
-    object-fit: contain;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
     object-position: top center;
-    max-height: 520px;
+    max-height: none;
   }
 
   /* Mobile/tablet: show hero text + photo immediately on page open */
@@ -735,19 +737,20 @@ a { color: inherit; text-decoration: none; }
 
   .hero-main-photo {
     max-width: 100%;
-    height: 240px;
+    height: auto;
+    aspect-ratio: 4 / 5;
     border-radius: 22px;
-    /* Mobile: show whole face/head without cropping */
-    object-fit: contain;
+    object-fit: cover;
     object-position: top center;
   }
 
   .bio-main {
     height: auto;
     border-radius: 24px;
-    object-fit: contain;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
     object-position: top center;
-    max-height: 420px;
+    max-height: none;
   }
 
   /* Mobile: show hero text + photo immediately on page open */
@@ -845,13 +848,14 @@ a { color: inherit; text-decoration: none; }
   }
 
   .hero-main-photo {
-    height: 200px;
-    object-fit: contain;
+    height: auto;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
     object-position: top center;
   }
 
   .bio-main {
-    max-height: 320px;
+    aspect-ratio: 4 / 5;
   }
 
   .review-slide {
