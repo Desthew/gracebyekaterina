@@ -1,9 +1,23 @@
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('is-visible');
-      observer.unobserve(entry.target);
-    }
+    if (!entry.isIntersecting) return;
+
+    entry.target.classList.add('is-visible');
+
+    // Mobile browsers (especially iOS Safari) may delay video loading until it's explicitly asked.
+    // Trigger loading/play when the revealed block enters the viewport.
+    const videos = entry.target.querySelectorAll('video');
+    videos.forEach((video) => {
+      try {
+        video.load();
+        const p = video.play();
+        if (p && typeof p.catch === 'function') p.catch(() => {});
+      } catch (e) {
+        // Autoplay can be blocked; loading is still the best-effort goal here.
+      }
+    });
+
+    observer.unobserve(entry.target);
   });
 }, {
   threshold: 0.14
@@ -33,3 +47,23 @@ window.addEventListener('mousemove', (e) => {
     spark.style.transform = `translate(${x * factor}px, ${y * factor}px)`;
   });
 });
+
+// Autoplay on mobile can be blocked until the first user gesture.
+// Best-effort fallback: when the user touches/clicks the page, try to play/load review videos.
+const tryPlayReviewVideos = () => {
+  document.querySelectorAll('#reviews video.review-video').forEach((video) => {
+    try {
+      video.muted = true;
+      video.load();
+      const p = video.play();
+      if (p && typeof p.catch === 'function') p.catch(() => {});
+    } catch (e) {
+      // Ignore autoplay/play errors.
+    }
+  });
+};
+
+const onFirstGesture = () => tryPlayReviewVideos();
+window.addEventListener('touchstart', onFirstGesture, { once: true, passive: true });
+window.addEventListener('pointerdown', onFirstGesture, { once: true, passive: true });
+window.addEventListener('click', onFirstGesture, { once: true });
