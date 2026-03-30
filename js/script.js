@@ -67,3 +67,46 @@ const onFirstGesture = () => tryPlayReviewVideos();
 window.addEventListener('touchstart', onFirstGesture, { once: true, passive: true });
 window.addEventListener('pointerdown', onFirstGesture, { once: true, passive: true });
 window.addEventListener('click', onFirstGesture, { once: true });
+
+const OFFER_TIMER_KEY = 'grace_offer_deadline_ts';
+const OFFER_DURATION_MS = 15 * 60 * 1000;
+
+const getOfferDeadline = () => {
+  const saved = Number(localStorage.getItem(OFFER_TIMER_KEY));
+  if (Number.isFinite(saved) && saved > Date.now()) return saved;
+
+  const deadline = Date.now() + OFFER_DURATION_MS;
+  localStorage.setItem(OFFER_TIMER_KEY, String(deadline));
+  return deadline;
+};
+
+const pad2 = (num) => String(num).padStart(2, '0');
+
+const initOfferTimer = () => {
+  const d = document.getElementById('timer-days');
+  const h = document.getElementById('timer-hours');
+  const m = document.getElementById('timer-minutes');
+  const s = document.getElementById('timer-seconds');
+  if (!d || !h || !m || !s) return;
+
+  const deadline = getOfferDeadline();
+
+  const render = () => {
+    const diffMs = Math.max(0, deadline - Date.now());
+    const totalSec = Math.floor(diffMs / 1000);
+    const days = Math.floor(totalSec / 86400);
+    const hours = Math.floor((totalSec % 86400) / 3600);
+    const minutes = Math.floor((totalSec % 3600) / 60);
+    const seconds = totalSec % 60;
+
+    d.textContent = pad2(days);
+    h.textContent = pad2(hours);
+    m.textContent = pad2(minutes);
+    s.textContent = pad2(seconds);
+  };
+
+  render();
+  setInterval(render, 1000);
+};
+
+initOfferTimer();

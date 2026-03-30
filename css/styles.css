@@ -478,10 +478,68 @@ a { color: inherit; text-decoration: none; }
 }
 
 .price-row { margin: 18px 0 8px; }
+.price-old {
+  display: block;
+  font-size: clamp(1.2rem, 2.3vw, 1.7rem);
+  color: var(--muted);
+  text-decoration: line-through;
+  text-decoration-thickness: 2px;
+  opacity: 0.85;
+  margin-bottom: 4px;
+}
+
 .price {
   font-size: clamp(3rem, 5vw, 4.8rem);
   margin-bottom: 0;
   text-shadow: 0 1px 0 rgba(255,255,255,0.8), 0 0 18px rgba(212,175,55,0.18);
+}
+
+.countdown-box {
+  margin: 18px auto 6px;
+  max-width: 440px;
+  padding: 14px 16px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.74);
+  border: 1px solid rgba(212, 175, 55, 0.28);
+  box-shadow: var(--gold-shadow);
+}
+
+.countdown-label {
+  font-size: 0.9rem;
+  color: #9f7b12;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.countdown-time {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.countdown-time span {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 3px;
+  padding: 9px 6px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(212, 175, 55, 0.22);
+}
+
+.countdown-time b {
+  font-size: 1.45rem;
+  line-height: 1;
+  color: var(--text);
+}
+
+.countdown-time small {
+  font-size: 0.8rem;
+  color: var(--muted);
+  font-weight: 700;
 }
 
 .clean-list {
@@ -742,6 +800,7 @@ a { color: inherit; text-decoration: none; }
     border-radius: 22px;
     object-fit: cover;
     object-position: top center;
+    max-height: 320px;
   }
 
   .bio-main {
@@ -812,6 +871,20 @@ a { color: inherit; text-decoration: none; }
   .pricing-box {
     padding: 22px 16px;
     border-radius: 22px;
+  }
+
+  .countdown-box {
+    max-width: 100%;
+    padding: 12px 10px;
+    border-radius: 14px;
+  }
+
+  .countdown-time {
+    gap: 6px;
+  }
+
+  .countdown-time b {
+    font-size: 1.15rem;
   }
 
   .clean-list {
