@@ -9,8 +9,25 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css" />
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '796652626522847');
+  fbq('track', 'PageView');
+  </script>
+  <!-- End Meta Pixel Code -->
 </head>
 <body id="top">
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=796652626522847&ev=PageView&noscript=1"
+  /></noscript>
   <div class="page-bg"></div>
   <div class="gold-spark spark-1"></div>
   <div class="gold-spark spark-2"></div>
@@ -22,14 +39,18 @@
         <span>Ekaterina Oleinikova</span>
       </a>
       <nav class="desktop-nav">
-        <a href="#bio">Biography</a>
-        <a href="#reviews">Reviews</a>
-        <a href="#pricing">Price</a>
+        <a href="#bio" data-i18n="navBio">Biography</a>
+        <a href="#reviews" data-i18n="navReviews">Reviews</a>
+        <a href="#pricing" data-i18n="navPrice">Price</a>
         <a href="#faq">FAQ</a>
       </nav>
+      <div class="lang-switch" role="group" aria-label="Language switcher">
+        <button type="button" class="lang-btn is-active" data-lang="en">EN</button>
+        <button type="button" class="lang-btn" data-lang="es">ES</button>
+      </div>
       <a href="https://buy.stripe.com/00w28r6Hz8LT7HN9Ji53O06" class="btn btn-small btn-purchase" target="_blank" rel="noopener noreferrer">
-        <span class="btn-label">Join now</span>
-        <span class="btn-price-wrap"><span class="btn-price-new">$39</span><span class="btn-price-old-inline">$70</span></span>
+        <span class="btn-label" data-i18n="joinNow">Join now</span>
+        <span class="btn-price-wrap"><span class="btn-price-new">$39</span><span class="btn-price-old-inline">$110</span></span>
       </a>
     </div>
   </header>
@@ -39,17 +60,17 @@
       <div class="hero-single-photo">
         <img src="assets/photos/person-1.jpg" alt="Ekaterina main photo" class="photo hero-main-photo shimmer" />
         <div class="hero-cover-content">
-          <h1>You forgot what it feels like to move and feel like a woman.</h1>
-          <p class="hero-photo-quote">In 10 lessons with a World Champion, you won't just learn to belly dance. You'll get that feeling back. For good.</p>
+          <h1 data-i18n="heroTitle">You forgot what it feels like to move and feel like a woman.</h1>
+          <p class="hero-photo-quote" data-i18n="heroQuote">In 10 lessons with a World Champion, you won't just learn to belly dance. You'll get that feeling back. For good.</p>
           <div class="hero-cover-actions">
-            <a href="#bio" class="btn btn-discover">Discover More</a>
+            <a href="#bio" class="btn btn-discover" data-i18n="discoverMore">Discover More</a>
           </div>
         </div>
       </div>
       <div class="hero-under-photo-actions">
         <a href="https://buy.stripe.com/00w28r6Hz8LT7HN9Ji53O06" class="btn btn-purchase hero-start-now" target="_blank" rel="noopener noreferrer">
-          <span class="btn-label">Start now</span>
-          <span class="btn-price-wrap"><span class="btn-price-new">$39</span><span class="btn-price-old-inline">$70</span></span>
+          <span class="btn-label" data-i18n="startNow">Start now</span>
+          <span class="btn-price-wrap"><span class="btn-price-new">$39</span><span class="btn-price-old-inline">$110</span></span>
         </a>
       </div>
     </section>
@@ -57,7 +78,7 @@
     <section class="stats section-sm">
       <div class="container stats-grid reveal">
         <div class="stat-card gold-line"><strong>10</strong><span>Short video lessons</span></div>
-        <div class="stat-card gold-line"><strong>$39</strong><span>One clear price</span></div>
+        <div class="stat-card gold-line"><strong>$39</strong><span data-i18n="onePrice">One clear price</span></div>
         <div class="stat-card gold-line"><strong>12 mo</strong><span>Access to materials</span></div>
         <div class="stat-card gold-line"><strong>100%</strong><span>Beginner friendly</span></div>
       </div>
@@ -69,13 +90,46 @@
           <img src="assets/photos/person-4.jpg" alt="Ekaterina portrait" class="photo bio-main gold-line shimmer" />
         </div>
         <div class="bio-copy reveal reveal-delay">
-          <div class="eyebrow">Biography</div>
+          <div class="eyebrow" data-i18n="bioEyebrow">Biography</div>
           <h2>Ekaterina Oleinikova</h2>
-          <p>My name is EKATERINA OLEINIKOVA. I am a two-time World Champion in belly dance, a judge at international competitions in 30+ countries, and a teacher with 16 years of experience. But most importantly — I have taught thousands of women with no experience to dance with confidence and beauty. Now it's your turn.</p>
+          <p data-i18n="bioText">My name is EKATERINA OLEINIKOVA. I am a two-time World Champion in belly dance, a judge at international competitions in 30+ countries, and a teacher with 16 years of experience. But most importantly — I have taught thousands of women with no experience to dance with confidence and beauty. Now it's your turn.</p>
           <a href="https://buy.stripe.com/00w28r6Hz8LT7HN9Ji53O06" class="btn btn-purchase" target="_blank" rel="noopener noreferrer">
-            <span class="btn-label">Join now</span>
-            <span class="btn-price-wrap"><span class="btn-price-new">$39</span><span class="btn-price-old-inline">$70</span></span>
+            <span class="btn-label" data-i18n="joinNow">Join now</span>
+            <span class="btn-price-wrap"><span class="btn-price-new">$39</span><span class="btn-price-old-inline">$110</span></span>
           </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="for-you" class="section section-fit">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div class="eyebrow" data-i18n="fitEyebrow">Perfect match</div>
+          <h2 data-i18n="fitTitle">This program is for you if...</h2>
+          <p data-i18n="fitSubtitle">If these words sound like you, this course was made for your journey.</p>
+        </div>
+
+        <div class="fit-list">
+          <article class="fit-item reveal gold-line">
+            <div class="fit-icon">✓</div>
+            <p data-i18n="fit1">You've never danced before - but secretly dreamed of moving gracefully like a goddess.</p>
+          </article>
+          <article class="fit-item reveal gold-line">
+            <div class="fit-icon">✓</div>
+            <p data-i18n="fit2">You're done with boring workouts - and want something joyful, feminine and fun instead.</p>
+          </article>
+          <article class="fit-item reveal gold-line">
+            <div class="fit-icon">✓</div>
+            <p data-i18n="fit3">You want to feel radiant, feminine, and fully confident in your body.</p>
+          </article>
+          <article class="fit-item reveal gold-line">
+            <div class="fit-icon">✓</div>
+            <p data-i18n="fit4">You're looking for a stress-relieving activity that feels like self-care.</p>
+          </article>
+          <article class="fit-item reveal gold-line">
+            <div class="fit-icon">✓</div>
+            <p data-i18n="fit5">You want to reconnect with your femininity and sensuality.</p>
+          </article>
         </div>
       </div>
     </section>
@@ -83,7 +137,7 @@
     <section id="reviews" class="section soft-section">
       <div class="container">
         <div class="section-heading reveal">
-          <div class="eyebrow">Social proof</div>
+          <div class="eyebrow" data-i18n="socialProof">Social proof</div>
         </div>
 
         <div class="reviews-marquee reviews-shell reveal">
@@ -173,16 +227,16 @@
     <section id="pricing" class="section">
       <div class="container">
         <div class="pricing-box reveal gold-frame shimmer">
-          <div class="eyebrow">Single plan</div>
-          <h2>Belly Dance Course</h2>
-          <p class="pricing-subtitle">Everything important in one offer.</p>
+          <div class="eyebrow" data-i18n="singlePlan">Single plan</div>
+          <h2 data-i18n="courseTitle">Belly Dance Course</h2>
+          <p class="pricing-subtitle" data-i18n="pricingSubtitle">Everything important in one offer.</p>
           <div class="price-row">
-            <span class="price-old">$70</span>
+            <span class="price-old">$110</span>
             <span class="price">$39</span>
-            <span class="price-note">full course access</span>
+            <span class="price-note" data-i18n="fullAccess">full course access</span>
           </div>
           <div class="countdown-box" id="offer-timer" aria-live="polite">
-            <div class="countdown-label">Discount ends in:</div>
+            <div class="countdown-label" data-i18n="discountEnds">Discount ends in:</div>
             <div class="countdown-time">
               <span><b id="timer-days">00</b><small>d</small></span>
               <span><b id="timer-hours">00</b><small>h</small></span>
@@ -191,14 +245,14 @@
             </div>
           </div>
           <ul class="clean-list">
-            <li>10 short lessons</li>
-            <li>Beginner-friendly format</li>
-            <li>12 months access</li>
-            <li>Watch anywhere</li>
+            <li data-i18n="list1">10 short lessons</li>
+            <li data-i18n="list2">Beginner-friendly format</li>
+            <li data-i18n="list3">12 months access</li>
+            <li data-i18n="list4">Watch anywhere</li>
           </ul>
           <a href="https://buy.stripe.com/00w28r6Hz8LT7HN9Ji53O06" class="btn btn-large btn-purchase" target="_blank" rel="noopener noreferrer">
-            <span class="btn-label">Join now</span>
-            <span class="btn-price-wrap"><span class="btn-price-new">$39</span><span class="btn-price-old-inline">$70</span></span>
+            <span class="btn-label" data-i18n="joinNow">Join now</span>
+            <span class="btn-price-wrap"><span class="btn-price-new">$39</span><span class="btn-price-old-inline">$110</span></span>
           </a>
         </div>
       </div>
@@ -208,29 +262,59 @@
       <div class="container">
         <div class="section-heading reveal">
           <div class="eyebrow">FAQ</div>
-          <h2>Everything you may want to know.</h2>
-          <p>Short answers to the most important questions before joining.</p>
+          <h2 data-i18n="faqTitle">Everything you may want to know.</h2>
+          <p data-i18n="faqSubtitle">Short answers to the most important questions before joining.</p>
         </div>
 
         <div class="faq-list">
           <details class="faq-item gold-line reveal">
-            <summary>Is this course good for complete beginners?</summary>
-            <p>Yes. The lessons are simple, clear and made for women who want to start from zero without pressure.</p>
+            <summary data-i18n="faq1q">I have no experience in dancing, will it suit me?</summary>
+            <p data-i18n="faq1a">Absolutely! This program is created for complete beginners. Each step is explained slowly and clearly, so you'll feel confident from the very first lesson.</p>
           </details>
 
           <details class="faq-item gold-line reveal">
-            <summary>How long do I keep access to the course?</summary>
-            <p>You get 12 months of access, so you can repeat the lessons anytime and move at your own pace.</p>
+            <summary data-i18n="faq2q">What if I don't have a beautiful costume or special training?</summary>
+            <p data-i18n="faq2a">You don't need any costume or preparation. Just comfortable clothes you can move in. If you decide to dress up later - that's just a fun bonus!</p>
           </details>
 
           <details class="faq-item gold-line reveal">
-            <summary>How long is each lesson?</summary>
-            <p>The lessons are short and easy to fit into everyday life, so you can stay consistent without feeling overwhelmed.</p>
+            <summary data-i18n="faq3q">How much time will the lessons take?</summary>
+            <p data-i18n="faq3a">Each lesson is around 30-60 minutes. You can practice anytime, at your own pace.</p>
           </details>
 
           <details class="faq-item gold-line reveal">
-            <summary>Do I need dance experience or special equipment?</summary>
-            <p>No. You do not need prior dance experience, and you can start at home without anything complicated.</p>
+            <summary data-i18n="faq4q">Will I have access to the lesson recordings after I complete all the sessions?</summary>
+            <p data-i18n="faq4a">Yes! You'll have access to all lessons for one full year, so you can repeat and practice as much as you want.</p>
+          </details>
+
+          <details class="faq-item gold-line reveal">
+            <summary data-i18n="faq5q">What if I change my mind / don't like it?</summary>
+            <p data-i18n="faq5a">No worries - we have a 7-day money-back guarantee. If you feel this program isn't for you, I'll refund your payment.</p>
+          </details>
+
+          <details class="faq-item gold-line reveal">
+            <summary data-i18n="faq6q">What if I miss a day?</summary>
+            <p data-i18n="faq6a">No problem! You can always come back and continue from where you left off. The program is flexible for your lifestyle.</p>
+          </details>
+
+          <details class="faq-item gold-line reveal">
+            <summary data-i18n="faq7q">I feel shy about dancing, what if I can't do it?</summary>
+            <p data-i18n="faq7a">That's the beauty of online learning - you dance in your own space, no pressure, no judgment. And you'll be surprised how quickly you start to feel graceful.</p>
+          </details>
+
+          <details class="faq-item gold-line reveal">
+            <summary data-i18n="faq8q">What language is the program in?</summary>
+            <p data-i18n="faq8a">All lessons are in simple English, perfectly clear for beginners. Even if English is not your native language, you'll easily understand everything. Subtitles will also be in Spanish.</p>
+          </details>
+
+          <details class="faq-item gold-line reveal">
+            <summary data-i18n="faq9q">Am I too old to start dancing?</summary>
+            <p data-i18n="faq9a">Not at all! Belly dance celebrates femininity at every age. Whether you're 20 or 60, it helps you reconnect with your body, move gracefully, and feel radiant from within.</p>
+          </details>
+
+          <details class="faq-item gold-line reveal">
+            <summary data-i18n="faq10q">Will I really be able to dance after 10 lessons?</summary>
+            <p data-i18n="faq10a">Yes! You'll learn step by step, and by the end you'll put everything together into a full dance choreography.</p>
           </details>
         </div>
       </div>
@@ -241,7 +325,7 @@
     <div class="container footer-stack">
       <div>
         <strong>Ekaterina Oleinikova</strong>
-        <p>Clean lavender landing page concept with gold accents.</p>
+        <p data-i18n="footerText">Clean lavender landing page concept with gold accents.</p>
       </div>
 
       <div class="social-buttons">
@@ -250,7 +334,7 @@
         <a class="social-btn facebook" href="https://www.facebook.com/ekaterina.oleynikova.733" target="_blank" rel="noopener noreferrer">Facebook</a>
       </div>
 
-      <a href="#top" class="text-link">Back to top ↑</a>
+      <a href="#top" class="text-link" data-i18n="backToTop">Back to top ↑</a>
     </div>
   </footer>
 
