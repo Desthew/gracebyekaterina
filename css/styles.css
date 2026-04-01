@@ -13,9 +13,9 @@
   --gold: #d4af37;
   --gold-soft: #f3df96;
   --gold-glow: 0 0 0 1px rgba(212,175,55,0.18), 0 0 30px rgba(212,175,55,0.12);
-  --shadow: 0 20px 60px rgba(124, 58, 237, 0.14);
+  --shadow: 0 24px 64px rgba(124, 58, 237, 0.12);
   --gold-shadow: 0 12px 34px rgba(212, 175, 55, 0.18);
-  --container: 1180px;
+  --container: 1200px;
 }
 
 html { scroll-behavior: smooth; }
@@ -26,6 +26,8 @@ body {
   color: var(--text);
   background: linear-gradient(180deg, #faf4ff 0%, #f4ebff 40%, #fbf7ff 100%);
   overflow-x: hidden;
+  line-height: 1.55;
+  text-rendering: optimizeLegibility;
 }
 
 .page-bg {
@@ -73,7 +75,7 @@ a { color: inherit; text-decoration: none; }
   backdrop-filter: blur(18px);
   background: rgba(250, 244, 255, 0.82);
   border-bottom: 1px solid rgba(212, 175, 55, 0.12);
-  box-shadow: 0 8px 30px rgba(212,175,55,0.06);
+  box-shadow: 0 10px 30px rgba(103, 49, 177, 0.08), 0 6px 24px rgba(212,175,55,0.08);
 }
 
 .nav {
@@ -97,12 +99,14 @@ a { color: inherit; text-decoration: none; }
   align-items: center;
   font-weight: 700;
   font-size: 1.15rem;
+  letter-spacing: 0.01em;
 }
 
 .desktop-nav {
   display: inline-flex;
   gap: 24px;
   color: var(--muted);
+  font-weight: 500;
 }
 
 .desktop-nav a {
@@ -352,14 +356,14 @@ a { color: inherit; text-decoration: none; }
   font-weight: 700;
   background: linear-gradient(135deg, var(--primary), #a855f7);
   color: white;
-  box-shadow: 0 16px 36px rgba(124, 58, 237, 0.28), var(--gold-shadow);
+  box-shadow: 0 18px 38px rgba(124, 58, 237, 0.26), var(--gold-shadow);
   transition: transform .25s ease, box-shadow .25s ease, filter .25s ease;
   border: 0;
 }
 
 .btn:hover {
   transform: translateY(-3px) scale(1.01);
-  box-shadow: 0 22px 48px rgba(124, 58, 237, 0.34), 0 16px 36px rgba(212, 175, 55, 0.22);
+  box-shadow: 0 24px 52px rgba(124, 58, 237, 0.32), 0 16px 36px rgba(212, 175, 55, 0.2);
   filter: saturate(1.05);
 }
 
@@ -380,6 +384,7 @@ a { color: inherit; text-decoration: none; }
   font-size: 1.45rem;
   line-height: 1;
   font-weight: 800;
+  letter-spacing: -0.02em;
 }
 
 .btn-price-old-inline {
@@ -525,6 +530,7 @@ a { color: inherit; text-decoration: none; }
   object-fit: cover;
   object-position: center top;
   border-radius: 0;
+  filter: saturate(1.04) contrast(1.02);
 }
 
 .btn-discover {
@@ -582,12 +588,16 @@ a { color: inherit; text-decoration: none; }
   border-radius: 24px;
   padding: 26px 20px;
   text-align: center;
-  transition: transform .25s ease;
+  transition: transform .25s ease, box-shadow .25s ease;
 }
 
 .stat-card:hover,
 .review-slide:hover {
   transform: translateY(-4px);
+}
+
+.stat-card:hover {
+  box-shadow: var(--shadow), 0 18px 38px rgba(212,175,55,0.2);
 }
 
 .stat-card strong,
@@ -725,10 +735,11 @@ a { color: inherit; text-decoration: none; }
   border-radius: 24px;
   overflow: hidden;
   flex: 0 0 auto;
-  transition: transform .25s ease, box-shadow .25s ease;
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
 }
 
 .review-slide:hover {
+  border-color: rgba(212,175,55,0.45);
   box-shadow: var(--shadow), 0 20px 40px rgba(212,175,55,0.18);
 }
 
@@ -776,6 +787,18 @@ a { color: inherit; text-decoration: none; }
   text-align: center;
   border-radius: 34px;
   padding: 38px;
+  overflow: hidden;
+}
+
+.pricing-box::after {
+  content: "";
+  position: absolute;
+  inset: auto -20% -55% auto;
+  width: 280px;
+  height: 280px;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(212,175,55,0.16), rgba(212,175,55,0));
+  pointer-events: none;
 }
 
 .price-row { margin: 18px 0 8px; }
@@ -879,6 +902,7 @@ a { color: inherit; text-decoration: none; }
   position: relative;
   border-radius: 22px;
   padding: 22px 24px;
+  transition: transform .2s ease, box-shadow .2s ease;
 }
 
 .faq-item summary {
@@ -911,9 +935,15 @@ a { color: inherit; text-decoration: none; }
   margin: 12px 0 0;
 }
 
+.faq-item:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow), 0 16px 30px rgba(212,175,55,0.14);
+}
+
 .site-footer {
   padding: 24px 0 48px;
   color: var(--muted);
+  border-top: 1px solid rgba(212, 175, 55, 0.14);
 }
 
 .social-buttons {
@@ -1195,6 +1225,10 @@ a { color: inherit; text-decoration: none; }
   .pricing-box h2,
   .bio-copy h2 {
     font-size: clamp(1.9rem, 8vw, 2.6rem);
+  }
+
+  .site-header {
+    box-shadow: 0 8px 22px rgba(103,49,177,0.08), 0 5px 18px rgba(212,175,55,0.08);
   }
 
   .reviews-shell::before,
