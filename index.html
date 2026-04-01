@@ -40,19 +40,37 @@
       </a>
       <nav class="desktop-nav">
         <a href="#bio" data-i18n="navBio">Biography</a>
+        <a href="#for-you" data-i18n="navForYou">For you</a>
         <a href="#reviews" data-i18n="navReviews">Reviews</a>
         <a href="#pricing" data-i18n="navPrice">Price</a>
-        <a href="#faq">FAQ</a>
+        <a href="#faq" data-i18n="navFaq">FAQ</a>
       </nav>
       <div class="lang-switch" role="group" aria-label="Language switcher">
         <button type="button" class="lang-btn is-active" data-lang="en">EN</button>
         <button type="button" class="lang-btn" data-lang="es">ES</button>
       </div>
+      <button type="button" class="menu-toggle" aria-expanded="false" aria-controls="site-menu" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
       <a href="https://buy.stripe.com/00w28r6Hz8LT7HN9Ji53O06" class="btn btn-small btn-purchase" target="_blank" rel="noopener noreferrer">
         <span class="btn-label" data-i18n="joinNow">Join now</span>
         <span class="btn-price-wrap"><span class="btn-price-new">$39</span><span class="btn-price-old-inline">$110</span></span>
       </a>
     </div>
+    <div class="menu-overlay" id="menu-overlay"></div>
+    <aside class="side-menu" id="site-menu" aria-hidden="true">
+      <div class="side-menu-head">
+        <strong data-i18n="menuTitle">Menu</strong>
+        <button type="button" class="menu-close" aria-label="Close menu">×</button>
+      </div>
+      <nav class="side-menu-links">
+        <a href="#bio" data-i18n="navBio">Biography</a>
+        <a href="#for-you" data-i18n="navForYou">For you</a>
+        <a href="#reviews" data-i18n="navReviews">Reviews</a>
+        <a href="#pricing" data-i18n="navPrice">Price</a>
+        <a href="#faq" data-i18n="navFaq">FAQ</a>
+      </nav>
+    </aside>
   </header>
 
   <main>

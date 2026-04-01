@@ -38,6 +38,42 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   });
 });
 
+const initBurgerMenu = () => {
+  const toggle = document.querySelector('.menu-toggle');
+  const closeBtn = document.querySelector('.menu-close');
+  const overlay = document.getElementById('menu-overlay');
+  const sideMenu = document.getElementById('site-menu');
+  if (!toggle || !closeBtn || !overlay || !sideMenu) return;
+
+  const openMenu = () => {
+    document.body.classList.add('menu-open');
+    toggle.setAttribute('aria-expanded', 'true');
+    sideMenu.setAttribute('aria-hidden', 'false');
+  };
+
+  const closeMenu = () => {
+    document.body.classList.remove('menu-open');
+    toggle.setAttribute('aria-expanded', 'false');
+    sideMenu.setAttribute('aria-hidden', 'true');
+  };
+
+  toggle.addEventListener('click', () => {
+    const isOpen = document.body.classList.contains('menu-open');
+    if (isOpen) closeMenu();
+    else openMenu();
+  });
+
+  closeBtn.addEventListener('click', closeMenu);
+  overlay.addEventListener('click', closeMenu);
+  sideMenu.querySelectorAll('a[href^="#"]').forEach((link) => {
+    link.addEventListener('click', closeMenu);
+  });
+
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeMenu();
+  });
+};
+
 const sparks = document.querySelectorAll('.gold-spark');
 window.addEventListener('mousemove', (e) => {
   const x = (e.clientX / window.innerWidth) - 0.5;
@@ -117,8 +153,11 @@ const SUPPORTED_LANGS = ['en', 'es'];
 const translations = {
   en: {
     navBio: 'Biography',
+    navForYou: 'For you',
     navReviews: 'Reviews',
     navPrice: 'Price',
+    navFaq: 'FAQ',
+    menuTitle: 'Menu',
     joinNow: 'Join now',
     heroTitle: 'You forgot what it feels like to move and feel like a woman.',
     heroQuote: "In 10 lessons with a World Champion, you won't just learn to belly dance. You'll get that feeling back. For good.",
@@ -174,8 +213,11 @@ const translations = {
   },
   es: {
     navBio: 'Biografia',
+    navForYou: 'Para ti',
     navReviews: 'Resenas',
     navPrice: 'Precio',
+    navFaq: 'Preguntas',
+    menuTitle: 'Menu',
     joinNow: 'Unirme ahora',
     heroTitle: 'Olvidaste lo que se siente moverte y sentirte mujer.',
     heroQuote: 'En 10 lecciones con una campeona mundial, no solo aprenderas danza del vientre. Recuperaras esa sensacion. Para siempre.',
@@ -283,3 +325,4 @@ const initLanguageSwitcher = () => {
 };
 
 initLanguageSwitcher();
+initBurgerMenu();
